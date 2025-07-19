@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchBooks } from '../../redux/slices/booksSlice';
+import { Link } from 'react-router-dom';
 
 const BookList = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,8 @@ const BookList = () => {
           <p>By {book.author}</p>
         </div>
       ))}
+
+      <Link to="/books/add" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"> Add New Book</Link>
     </div>
   );
 };
