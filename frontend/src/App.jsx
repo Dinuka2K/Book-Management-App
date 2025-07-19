@@ -5,6 +5,7 @@ import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import BookList from './pages/books/BookList';
 import AddBook from './pages/books/AddBook';
+import EditBook from './pages/books/EditBook';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/books" element={<BookList />} />
           <Route path="/books/add" element={<AddBook />} />
+          <Route path="/books/:id/edit" element={<EditBook />} />
         </Routes>
       </main>
     </Router>
