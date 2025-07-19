@@ -25,6 +25,7 @@ const BookList = () => {
       ))}
 
       <Link to="/books/add" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"> Add New Book</Link>
+      <Link to="/books/:id/edit" className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"> Update Book</Link>
     </div>
   );
 };
