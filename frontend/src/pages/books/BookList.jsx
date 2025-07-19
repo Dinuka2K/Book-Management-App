@@ -1,15 +1,27 @@
 import { useEffect } from 'react';
-import api from '../../api/axios';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchBooks } from '../../redux/slices/booksSlice';
 
 const BookList = () => {
-   useEffect(() => {
-    api.get('/books').then((res) => console.log('Books:', res.data));
-  }, []);
+  const dispatch = useDispatch();
+  const { books, loading, error } = useSelector((state) => state.books);
+
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, [dispatch]);
+
+  if (loading) return <div>Loading books...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-4">Book List</h1>
-      <p>Book data will be fetched from API in next commits.</p>
+      <h1>Book List</h1>
+      {books.map((book) => (
+        <div key={book._id}>
+          <h3>{book.title}</h3>
+          <p>By {book.author}</p>
+        </div>
+      ))}
     </div>
   );
 };
